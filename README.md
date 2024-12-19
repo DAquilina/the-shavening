@@ -15,3 +15,7 @@ Call `npm install` to install all necessary dependencies.
 ### Development
 
 To start local development server call `npm run start`. Now you can visit http://localhost:8080 to view this project.
+
+### Attributions
+
+Originally built in [CodeSandbox](https://codesandbox.io/p/github/DAquilina/the-shavening).
