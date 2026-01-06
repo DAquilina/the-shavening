@@ -1,6 +1,7 @@
 dist
 build
+node_modules
+.angular
 .cache
 .env
 .eslintcache
-package-lock.json

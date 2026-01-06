@@ -20,6 +20,7 @@ import { Component, OnDestroy, OnInit } from "@angular/core";
         <div class="beard-cover-top"></div>
         <div class="beard-cover-bottom"></div>
 
+        <!-- Guide markers -->
         <!--
         <div class="ref-line-1"></div>
         <div class="ref-line-2"></div>
@@ -81,7 +82,7 @@ import { Component, OnDestroy, OnInit } from "@angular/core";
     ".face-container .face-base .eyebrow.eyebrow-left { left: 35px; transform: scaleX(-1); }",
     ".face-container .face-base .nose { position: absolute; top: 55%; left: 50%; height: 40px; width: 30px; transform: translateX(-50%); }",
     ".face-container .face-base .nose .bridge { position: absolute; bottom: 0; left: 0; right: 0; top: 0; background-color: #f0b8a0; border-bottom: 1px solid #000000; border-radius: 100% 100% 50% 50%; z-index: 2; }",
-    ".face-container .face-base .nose .nostril { position: absolute; left: -7px; top: 20px; height: 15px; width: 15px; 50%; background-color: #f0b8a0; border-bottom: 1px solid #000000; border-radius: 100%; z-index: 1; }",
+    ".face-container .face-base .nose .nostril { position: absolute; left: -7px; top: 20px; height: 15px; width: 15px; background-color: #f0b8a0; border-bottom: 1px solid #000000; border-radius: 100%; z-index: 1; }",
     ".face-container .face-base .nose .nostril.nostril-left { left: 23px; }",
     ".face-container .face-base .mouth { position: absolute; top: 235px; left: 50%; transform: translateX(-50%); }",
     ".face-container .face-base .mouth .lip { height: 8px; width: 40px; background-color: #f46e7b; border-radius: 100% 100% 0 0; }",
@@ -200,10 +201,12 @@ export class SomethingInterestingComponent implements OnDestroy, OnInit {
 
   currentState = 0;
 
-  private _interval: number;
+  private _interval: ReturnType<typeof setInterval> | null = null;
 
   ngOnDestroy(): void {
-    clearInterval(this._interval);
+    if (this._interval) {
+      clearInterval(this._interval);
+    }
   }
 
   ngOnInit(): void {
